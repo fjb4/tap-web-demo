@@ -1,0 +1,31 @@
+# Global default DEVELOPMENT settings for ALL apps in the solution
+Logging:
+  LogLevel:
+    Default: Debug
+    Microsoft: Information
+    Steeltoe.Extensions.Configuration.ConfigServer: Warning
+
+Spring:
+  Cloud:
+    Config:
+      Enabled: false # disable config server in local development
+  Boot:
+    Admin:
+      Client:
+        Url: http://127.0.0.1:8088
+        Metadata:
+          "user.name": admin
+          "user.password": admin
+Management:
+  Endpoints:
+    Actuator:
+      EnableSecurity: false
+  Tracing:
+    Exporter:
+      Zipkin:
+        Endpoint: http://127.0.0.1:9411
+
+Authentication:
+  Bearer:
+    Authority: https://login.run.pcfone.io
+Urls: ${ASPNETCORE_URLS?http://127.0.0.1:5000;https://127.0.0.1:5001}

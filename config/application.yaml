@@ -1,0 +1,28 @@
+# GLOBAL default settings for ALL apps in the solution. For app specific settings, use APPNAME.yaml or APPNAME-<ENV>.yaml
+Logging:
+  LogLevel:
+    Default: Information
+    Microsoft: Warning
+    Microsoft.Hosting.Lifetime: Information
+    Microsoft.EntityFrameworkCore.Database.Command: Warning
+    idunno: Error
+    Steeltoe: Information
+    Steeltoe.Management.Endpoint.Metrics.Observer.AspNetCoreHostingObserver: None
+AllowedHosts: '*'
+Management:
+  Endpoints:
+    Actuator:
+      Exposure:
+        Include: 
+          - '*'
+    Health:
+      ShowDetails: WhenAuthorized
+      Claim:
+        Type: Scope
+        Value: actuators
+
+        
+
+Authentication:
+  Bearer:
+    Authority: https://accounts.google.com
